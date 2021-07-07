@@ -2,6 +2,7 @@ import { store } from "quasar/wrappers";
 import { createStore } from "vuex";
 import search from "./modules/search";
 import kinopoiskId from "./modules/kinopoiskId";
+import iframe from "./modules/iframe";
 // import example from './module-example'
 
 /*
@@ -18,6 +19,7 @@ export default store(function (/* { ssrContext } */) {
     modules: {
       search,
       kinopoiskId,
+      iframe,
     },
 
     // enable strict mode (adds overhead!)

@@ -6,8 +6,8 @@
         v-for="film in films"
         :key="film.filmId"
       >
-        <div @click="handleFilm(film.filmId)">
-          <q-card class="my-card">
+        <div class="my-card" @click="handleFilm(film.filmId, film.iframe_src)">
+          <q-card>
             <q-img
               height="350px"
               :alt="film.ru_title"
@@ -36,9 +36,13 @@ import { defineComponent } from "vue";
 export default defineComponent({
   name: "CardKinopoisk",
   props: ["films"],
+  setup(props) {
+    console.log(props);
+  },
   methods: {
-    handleFilm(filmId) {
+    handleFilm(filmId, iframe_src) {
       this.$store.commit("kinopoiskId/SET_ID", filmId);
+      this.$store.commit("iframe/SET_IFRAME", iframe_src);
       this.$router.push({ name: "Фильм", params: { id: filmId } });
     },
   },

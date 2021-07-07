@@ -36,7 +36,9 @@
       </div>
       <div class="col-12 col-sm-6 col-md-9">
         <h1 class="text-h5 text-accent">
-          {{ dataFilm?.nameRu }} / {{ dataFilm?.nameEn }}
+          {{ dataFilm?.nameRu }}
+          <span v-if="dataFilm?.nameRu">/</span>
+          {{ dataFilm?.nameEn }}
         </h1>
         <div class="text-body1 width-text">
           {{ dataFilm?.description }}
@@ -89,8 +91,9 @@
       <q-skeleton animation="pulse" height="400px" />
     </div>
     <div v-else class="flex justify-center text-accent text-h5 q-my-lg">
-      К сожелению нет информации.
+      К сожелению, нет информации.
     </div>
+
     <div class="q-pa-md">
       <q-btn
         class="q-mb-lg"
@@ -110,18 +113,18 @@
           padding="0.8rem 3rem"
           @click="isOpenPlayer = !isOpenPlayer"
         />
-        <div v-if="$route.params.id == dataFilm?.filmId">
+        <div v-if="$route.params.id != $store.state.kinopoiskId.id">
           <q-video
             :ratio="16 / 9"
-            :src="`https://1.svetacdn.in/R2w6Nvw11JVw?kp_id=${$route.params.id}`"
+            :src="`https://${$store.state.iframe.iframeSrc}`"
             frameborder="0"
             allowfullscreen
           />
         </div>
-        <div v-else v-for="video in film" :key="video.id">
+        <div v-else>
           <q-video
             :ratio="16 / 9"
-            :src="`https:${video.iframe_src}`"
+            :src="`https://1.svetacdn.in/R2w6Nvw11JVw?kp_id=${$store.state.kinopoiskId.id}`"
             frameborder="0"
             allowfullscreen
           />
@@ -163,7 +166,7 @@ export default {
     //     console.log("Документ", document.head);
     //     document.head.removeChild(script.value);
     //   });
-    console.log(dataFilm);
+    console.log(film);
     getdata();
     return {
       film,

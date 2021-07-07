@@ -31,13 +31,13 @@ export default {
   setup() {
     const pageName = "show-tv-series";
     const { loading, error, films, totalPage, current } = useMovies(pageName);
-
+    console.log(films);
     return {
       current,
       loading,
       error,
       films,
-      totalPage: computed(() => totalPage.value),
+      totalPage,
     };
   },
 };
