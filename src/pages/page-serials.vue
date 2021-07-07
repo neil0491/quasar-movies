@@ -2,10 +2,13 @@
   <q-page padding>
     <!-- content -->
     <!-- <div :v-if="error === true">Error page {{ error }}</div> -->
-
-    <card-film :films="films" />
-
-    <div v-if="error === false" class="q-pa-lg flex flex-center">
+    <div v-if="loading === false">
+      <card-film :films="films" />
+    </div>
+    <div v-else>
+      <card-loader />
+    </div>
+    <div class="q-pa-lg flex flex-center">
       <q-pagination
         v-model="current"
         color="accent"
@@ -14,7 +17,6 @@
         :boundary-numbers="true"
       />
     </div>
-    <div v-else>Loading . . .</div>
   </q-page>
 </template>
 
@@ -22,9 +24,10 @@
 import { computed } from "vue";
 import { useMovies } from "../composables/use-movies";
 import CardFilm from "../components/CardFilm.vue";
+import CardLoader from "../components/CardLoader.vue";
 
 export default {
-  components: { CardFilm },
+  components: { CardFilm, CardLoader },
   setup() {
     const pageName = "tv-series";
     const { loading, error, films, totalPage, current } = useMovies(pageName);

@@ -23,7 +23,6 @@ export function useSearch(query) {
   // onUpdated(() => {
   //   console.log("updated()", films.value);
   // });
-
   loadData();
   return {
     error,

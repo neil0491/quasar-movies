@@ -2,9 +2,12 @@
   <q-page padding>
     <!-- content -->
     <!-- <div :v-if="error === true">Error page {{ error }}</div> -->
-
-    <card-film :films="films" />
-
+    <div v-if="loading !== true">
+      <card-film :films="films" />
+    </div>
+    <div v-else>
+      <card-loader />
+    </div>
     <div class="q-pa-lg flex flex-center">
       <q-pagination
         v-model="current"
@@ -14,17 +17,16 @@
         :boundary-numbers="true"
       />
     </div>
-    <!-- <div v-else>Loading . . .</div> -->
   </q-page>
 </template>
 
 <script>
-import { computed } from "vue";
 import { useMovies } from "../composables/use-movies";
 import CardFilm from "../components/CardFilm.vue";
+import CardLoader from "../components/CardLoader.vue";
 
 export default {
-  components: { CardFilm },
+  components: { CardLoader, CardFilm },
   setup() {
     const pageName = "movies";
     const { loading, error, films, totalPage, loadData, current } =
@@ -35,7 +37,7 @@ export default {
       loading,
       error,
       films,
-      totalPage: computed(() => totalPage.value),
+      totalPage,
     };
   },
 };

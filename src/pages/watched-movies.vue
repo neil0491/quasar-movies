@@ -2,9 +2,12 @@
   <q-page padding>
     <!-- content -->
     <!-- <div :v-if="error === true">Error page {{ error }}</div> -->
-
-    <card-kinopoisk :films="films" />
-
+    <div v-if="loading === false">
+      <card-kinopoisk :films="films" />
+    </div>
+    <div v-else>
+      <card-loader />
+    </div>
     <div class="q-pa-lg flex flex-center">
       <q-pagination
         v-model="current"
@@ -14,16 +17,16 @@
         :boundary-numbers="true"
       />
     </div>
-    <!-- <div v-else>Loading . . .</div> -->
   </q-page>
 </template>
 
 <script>
 import { useTopMovies } from "../composables/useTopMovies.js";
 import CardKinopoisk from "../components/CardKinopoisk.vue";
+import CardLoader from "../components/CardLoader.vue";
 
 export default {
-  components: { CardKinopoisk },
+  components: { CardKinopoisk, CardLoader },
   setup() {
     const pageName = "TOP_100_POPULAR_FILMS";
     const { loading, error, films, totalPage, current } =

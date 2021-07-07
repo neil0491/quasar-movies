@@ -42,7 +42,11 @@ export default defineComponent({
   methods: {
     handleFilm(filmId, kpId) {
       this.$store.commit("kinopoiskId/SET_ID", kpId);
-      this.$router.push({ name: "Фильм", params: { id: filmId } });
+      if (kpId) {
+        this.$router.push({ name: "Фильм", params: { id: kpId } });
+      } else {
+        this.$router.push({ name: "Фильм", params: { id: filmId } });
+      }
     },
   },
 });

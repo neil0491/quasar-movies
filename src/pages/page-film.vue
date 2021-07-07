@@ -91,7 +91,6 @@
     <div v-else class="flex justify-center text-accent text-h5 q-my-lg">
       К сожелению нет информации.
     </div>
-
     <div class="q-pa-md">
       <q-btn
         class="q-mb-lg"

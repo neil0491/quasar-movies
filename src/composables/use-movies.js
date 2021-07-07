@@ -4,7 +4,7 @@ import { ref, reactive, onMounted, watch } from "vue";
 export function useMovies(pageName) {
   const loading = ref(false);
   const error = ref(false);
-  const totalPage = ref(null);
+  const totalPage = ref(0);
   const current = ref(1);
   const films = reactive(ref(null));
 

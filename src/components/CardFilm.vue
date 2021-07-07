@@ -7,7 +7,7 @@
         :key="film.id"
       >
         <div @click="handleFilm(film.id, film.kinopoisk_id)">
-          <q-card class="my-card">
+          <q-card lass="my-cardc">
             <q-img
               height="350px"
               :alt="film.ru_title"
