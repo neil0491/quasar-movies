@@ -6,7 +6,7 @@ export function useTopMovies(pageName) {
   const error = ref(false);
   const totalPage = ref(0);
   const current = ref(1);
-  const films = reactive(ref(null));
+  const films = ref(null);
 
   const loadData = async (page) => {
     try {

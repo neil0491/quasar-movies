@@ -102,9 +102,9 @@
         label="смотреть"
         padding="0.8rem 3rem"
         @click="isOpenPlayer = !isOpenPlayer"
-        v-if="!isOpenPlayer"
+        v-show="!isOpenPlayer"
       />
-      <div v-if="isOpenPlayer">
+      <div v-show="isOpenPlayer">
         <q-btn
           class="q-mb-lg"
           color="accent"

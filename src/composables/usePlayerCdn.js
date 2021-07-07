@@ -7,7 +7,7 @@ export function usePlayerCdn() {
   const loading = ref(false);
   const error = ref(false);
   const film = ref(null);
-  const route = reactive(useRoute());
+  const route = useRoute();
 
   const loadData = async () => {
     loading.value = true;

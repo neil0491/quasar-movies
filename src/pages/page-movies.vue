@@ -29,8 +29,11 @@ export default {
   components: { CardLoader, CardFilm },
   setup() {
     const pageName = "movies";
-    const { loading, error, films, totalPage, loadData, current } =
-      useMovies(pageName);
+    const limitPage = 18;
+    const { loading, error, films, totalPage, current } = useMovies(
+      pageName,
+      limitPage
+    );
 
     return {
       current,
