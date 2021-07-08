@@ -39,17 +39,14 @@ import { defineComponent } from "vue";
 export default defineComponent({
   name: "CardSearch",
   props: ["films"],
-  setup(props) {
-    console.log(props);
-  },
   methods: {
     handleFilm(filmId, kpId, iframe_src) {
       this.$store.commit("kinopoiskId/SET_ID", kpId);
       this.$store.commit("iframe/SET_IFRAME", iframe_src);
       if (kpId) {
-        this.$router.push({ name: "Фильм", params: { id: kpId } });
+        this.$router.push({ name: "Просмотр", params: { id: kpId } });
       } else {
-        this.$router.push({ name: "Фильм", params: { id: filmId } });
+        this.$router.push({ name: "Просмотр", params: { id: filmId } });
       }
     },
   },

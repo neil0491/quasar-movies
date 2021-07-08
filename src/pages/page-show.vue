@@ -30,8 +30,11 @@ export default {
   components: { CardFilm, CardLoader },
   setup() {
     const pageName = "show-tv-series";
-    const { loading, error, films, totalPage, current } = useMovies(pageName);
-    console.log(films);
+    const limitPage = 18;
+    const { loading, error, films, totalPage, current } = useMovies(
+      pageName,
+      limitPage
+    );
     return {
       current,
       loading,

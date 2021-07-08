@@ -18,6 +18,17 @@ export default {
       });
     };
 
+    // onMounted(() => {
+    //   console.log(document.head);
+    //   script.value = document.createElement("script");
+    //   script.value.setAttribute("src", "/player-script/yo.js");
+    //   document.head.appendChild(script.value);
+    // }),
+    //   onUnmounted(() => {
+    //     console.log("Удаление", script.value);
+    //     console.log("Документ", document.head);
+    //     document.head.removeChild(script.value);
+    //   });
     onMounted(() => {
       console.log(document.head);
       script.value = document.createElement("script");
@@ -25,8 +36,6 @@ export default {
       document.head.appendChild(script.value);
     }),
       onUnmounted(() => {
-        console.log("Удаление", script.value);
-        console.log("Документ", document.head);
         document.head.removeChild(script.value);
       });
     return {

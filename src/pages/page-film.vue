@@ -80,7 +80,7 @@
           >
             <ul>
               <li v-for="(fact, index) in dataFilm?.facts" :key="index">
-                {{ fact }}
+                <div v-html="fact"></div>
               </li>
             </ul>
           </q-expansion-item>
@@ -155,18 +155,6 @@ export default {
       router.go(-1);
     };
 
-    // onMounted(() => {
-    //   console.log(document.head);
-    //   script.value = document.createElement("script");
-    //   script.value.setAttribute("src", "/player-script/yo.js");
-    //   document.head.appendChild(script.value);
-    // }),
-    //   onUnmounted(() => {
-    //     console.log("Удаление", script.value);
-    //     console.log("Документ", document.head);
-    //     document.head.removeChild(script.value);
-    //   });
-    console.log(film);
     getdata();
     return {
       film,

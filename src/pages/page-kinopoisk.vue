@@ -32,7 +32,6 @@ export default {
     const pageName = "TOP_250_BEST_FILMS";
     const { loading, error, films, totalPage, current } =
       useTopMovies(pageName);
-    console.log(films);
     return {
       current,
       loading,

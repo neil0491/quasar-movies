@@ -14,6 +14,7 @@ const api = axios.create({
     "X-API-KEY": "1220afbe-7495-4b15-b248-073dbf409499",
   },
 });
+const apiVideo = axios.create({ baseURL: "https://videocdn.tv/api/" });
 
 export default boot(({ app }) => {
   // for use inside Vue files (Options API) through this.$axios and this.$api
@@ -23,8 +24,9 @@ export default boot(({ app }) => {
   //       so you won't necessarily have to import axios in each vue file
 
   app.config.globalProperties.$api = api;
+  app.config.globalProperties.$api = apiVideo;
   // ^ ^ ^ this will allow you to use this.$api (for Vue Options API form)
   //       so you can easily perform requests against your app's API
 });
 
-export { api, axios };
+export { api, axios, apiVideo };

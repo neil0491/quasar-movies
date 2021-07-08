@@ -31,7 +31,7 @@ const routes = [
       },
 
       {
-        name: "Фильм",
+        name: "Просмотр",
         path: "/film/:id",
         component: () => import("pages/page-film.vue"),
       },

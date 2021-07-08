@@ -1,5 +1,5 @@
-import axios from "axios";
-import { ref, reactive, onMounted, watch } from "vue";
+import { ref, onMounted, watch } from "vue";
+import { api } from "boot/axios";
 
 export function useTopMovies(pageName) {
   const loading = ref(false);
@@ -7,19 +7,10 @@ export function useTopMovies(pageName) {
   const totalPage = ref(0);
   const current = ref(1);
   const films = ref(null);
-
   const loadData = async (page) => {
     try {
       loading.value = true;
-      const res = await axios.get(
-        `https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=${pageName}&page=${page}`,
-        {
-          headers: {
-            "Content-Type": `application/json`,
-            "X-API-KEY": "1220afbe-7495-4b15-b248-073dbf409499",
-          },
-        }
-      );
+      const res = await api.get(`v2.2/films/top?type=${pageName}&page=${page}`);
       films.value = res.data.films;
       totalPage.value = res.data.pagesCount;
     } catch (error) {

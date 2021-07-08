@@ -21,7 +21,6 @@
 </template>
 
 <script>
-import { computed } from "vue";
 import { useMovies } from "../composables/use-movies";
 import CardFilm from "../components/CardFilm.vue";
 import CardLoader from "../components/CardLoader.vue";
@@ -30,14 +29,18 @@ export default {
   components: { CardFilm, CardLoader },
   setup() {
     const pageName = "tv-series";
-    const { loading, error, films, totalPage, current } = useMovies(pageName);
+    const limitPage = 18;
+    const { loading, error, films, totalPage, current } = useMovies(
+      pageName,
+      limitPage
+    );
 
     return {
       current,
       loading,
       error,
       films,
-      totalPage: computed(() => totalPage.value),
+      totalPage,
     };
   },
 };

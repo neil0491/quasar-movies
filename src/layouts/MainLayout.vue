@@ -27,6 +27,10 @@
       :width="250"
       class="bg-secondary"
     >
+      <router-link to="/" class="text-h5 text-center q-my-lg block">
+        MOVIE <span class="text-accent">MANIA</span>
+      </router-link>
+
       <q-list padding class="q-mt-xl">
         <q-item
           :inset-level="0.4"
@@ -62,6 +66,8 @@
           <q-item-section class="text-h6">{{ item.name }}</q-item-section>
         </q-item>
       </q-list>
+
+      <q-separator spaced="1rem" size="2px" />
 
       <q-list padding>
         <q-item
@@ -159,6 +165,12 @@ export default {
 <style lang="scss">
 .my-exact-active-class {
   color: $accent;
+}
+.router-link-active {
+  text-decoration: none;
+  & {
+    color: inherit;
+  }
 }
 .input-search {
   width: 50%;

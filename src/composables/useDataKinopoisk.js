@@ -1,5 +1,6 @@
 import axios from "axios";
 import { ref, reactive, onMounted, computed } from "vue";
+import { api } from "boot/axios";
 
 export function useDataKinopoisk(id) {
   const loadingData = ref(false);
@@ -9,15 +10,7 @@ export function useDataKinopoisk(id) {
   const getdata = async () => {
     try {
       loadingData.value = true;
-      const res = await axios.get(
-        `https://kinopoiskapiunofficial.tech/api/v2.1/films/${id}`,
-        {
-          headers: {
-            "Content-Type": `application/json`,
-            "X-API-KEY": "1220afbe-7495-4b15-b248-073dbf409499",
-          },
-        }
-      );
+      const res = await api.get(`v2.1/films/${id}`);
       dataFilm.value = res.data.data;
     } catch (error) {
       console.error(error);

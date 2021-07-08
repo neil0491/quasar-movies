@@ -36,14 +36,11 @@ import { defineComponent } from "vue";
 export default defineComponent({
   name: "CardKinopoisk",
   props: ["films"],
-  setup(props) {
-    console.log(props);
-  },
   methods: {
     handleFilm(filmId, iframe_src) {
       this.$store.commit("kinopoiskId/SET_ID", filmId);
       this.$store.commit("iframe/SET_IFRAME", iframe_src);
-      this.$router.push({ name: "Фильм", params: { id: filmId } });
+      this.$router.push({ name: "Просмотр", params: { id: filmId } });
     },
   },
 });
