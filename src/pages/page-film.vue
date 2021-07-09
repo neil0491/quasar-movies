@@ -57,7 +57,7 @@
               >{{ country.country }}</span
             >
           </div>
-          <div class="q-my-lg-md">
+          <div class="q-my-lg-md flex">
             <strong class="text-blue-grey-2">Жанр:</strong>
             <span
               class="q-mx-xs"
@@ -113,7 +113,7 @@
           padding="0.8rem 3rem"
           @click="isOpenPlayer = !isOpenPlayer"
         />
-        <div v-if="$route.params.id != $store.state.kinopoiskId.id">
+        <div v-if="$route.params.id != store.state.kinopoiskId.id">
           <q-video
             :ratio="16 / 9"
             :src="`https://${$store.state.iframe.iframeSrc}`"
@@ -124,7 +124,7 @@
         <div v-else>
           <q-video
             :ratio="16 / 9"
-            :src="`https://1.svetacdn.in/R2w6Nvw11JVw?kp_id=${$store.state.kinopoiskId.id}`"
+            :src="`https://1.svetacdn.in/R2w6Nvw11JVw?kp_id=${store.state.kinopoiskId.id}`"
             frameborder="0"
             allowfullscreen
           />
@@ -165,6 +165,7 @@ export default {
       errorData,
       handelBackRoute,
       isOpenPlayer,
+      store
     };
   },
 };

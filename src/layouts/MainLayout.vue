@@ -28,10 +28,10 @@
       class="bg-secondary"
     >
       <router-link to="/" class="text-h5 text-center q-my-lg block">
-        MOVIE <span class="text-accent">MANIA</span>
+        CINEMA<span class="text-accent">MANIA</span>
       </router-link>
 
-      <q-list padding class="q-mt-xl">
+      <q-list padding>
         <q-item
           :inset-level="0.4"
           exact
@@ -67,7 +67,7 @@
         </q-item>
       </q-list>
 
-      <q-separator spaced="1rem" size="2px" />
+      <q-separator spaced="0.3rem" size="2px" />
 
       <q-list padding>
         <q-item
@@ -84,7 +84,7 @@
           <q-item-section avatar>
             <q-icon :name="item.icon" />
           </q-item-section>
-          <q-item-section class="text-h6">{{ item.name }}</q-item-section>
+          <q-item-section class="text-subtitle1">{{ item.name }}</q-item-section>
         </q-item>
       </q-list>
     </q-drawer>

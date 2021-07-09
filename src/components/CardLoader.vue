@@ -2,7 +2,7 @@
   <div class="q-pa-md">
     <div class="row items-start q-col-gutter-md">
       <div
-        class="col-12 col-sm-6 col-md-4 col-lg-2"
+        class="col-6 col-sm-6 col-md-4 col-lg-2"
         v-for="(film, index) in 18"
         :key="index"
       >

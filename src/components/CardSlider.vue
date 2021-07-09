@@ -5,12 +5,9 @@
     </div>
     <swiper
       class="swiper"
-      slides-per-view="1"
-      :space-between="5"
+      slides-per-view="2"
+      :space-between="10"
       :breakpoints="{
-        '425': {
-          slidesPerView: 2,
-        },
         '768': {
           slidesPerView: 3,
         },
